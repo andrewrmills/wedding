@@ -1,1 +1,55 @@
 @import "tailwindcss";
+
+@theme {
+  /* Fonts — CSS variables injected by next/font/google in app/layout.tsx */
+  --font-display: var(--font-playfair);
+  --font-body: var(--font-outfit);
+
+  /* Colours */
+  --color-ink: #f2f5f0;         /* page background, very light sage */
+  --color-ink-mid: #e4ebe1;     /* elevated surfaces */
+  --color-ink-border: #c0cebb;  /* subtle borders and dividers */
+  --color-cream: #1a2e1c;       /* primary text, deep forest */
+  --color-cream-dim: #5a7060;   /* secondary / muted text */
+  --color-clay: #4a7a58;        /* accent — eucalyptus green */
+  --color-clay-light: #6a9a72;  /* accent hover */
+
+  /* Animations */
+  --animate-fade-in: fade-in-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-fade-in-delayed: fade-in-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
+  --animate-bounce-slow: bounce-y 2s ease-in-out infinite;
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce-y {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(5px); }
+}
+
+@keyframes cake-shake {
+  0%,  100% { transform: translateX(0); }
+  20%        { transform: translateX(-7px); }
+  40%        { transform: translateX(7px); }
+  60%        { transform: translateX(-4px); }
+  80%        { transform: translateX(4px); }
+}
+
+.cake-shake {
+  animation: cake-shake 0.45s ease-in-out;
+}
+
+body {
+  background-color: var(--color-ink);
+  color: var(--color-cream);
+  font-family: var(--font-body);
+}

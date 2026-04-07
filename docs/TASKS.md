@@ -16,10 +16,10 @@ This is the living task list. Keep it current as work progresses.
 - [x] Resolve: confirm GSAP-only animation approach — **confirmed, no Framer Motion**
 - [x] Resolve: hero section alignment — **centred override**
 - [x] Confirm: Supabase project — **created and connected**
-- [x] Confirm: Google Maps API key — **needs provisioning** (Phase 5 blocked)
-- [x] Confirm: wedding cake `.glb` model — **place at `/public/models/wedding-cake.glb`**
+- [x] Confirm: Google Maps API key — **provisioned, in `.env.local`**
+- [-] Confirm: wedding cake `.glb` model — **Three.js removed; not needed**
 - [x] Confirm: real coordinates — ceremony: `-43.48750040243022, 172.724813561856` / reception: `-43.4884779500395, 172.72101031898032`
-- [ ] Confirm: venue names, address strings, date, and time — **still needed**
+- [x] Confirm: venue names, address strings, date, and time — **The Beach / Our House / 13th Feb 2027 / 2pm**
 - [x] Confirm: design direction — **bold and memorable, do not play it safe**
 
 ---
@@ -42,10 +42,10 @@ This is the living task list. Keep it current as work progresses.
 
 - [x] Personalised welcome message from `type` field (Aus / Pom / Kiwi)
 - [x] Handle `welcome_message` override when non-null
-- [x] Render heading with guest's first name in subtitle
 - [x] Scroll prompt at bottom (animated bounce chevron)
-- [x] Hero overlaid on cake canvas (absolute position, z-index 10)
-- [x] Text shadows for readability over 3D background
+- [x] Photo collage background — randomised subset of `/public/img/`, Aus-only images gated by guest type
+- [-] Hero overlaid on cake canvas — **Three.js removed; replaced with photo collage**
+- [-] Text shadows for readability over 3D background — **removed with Three.js**
 - [ ] Verify mobile layout
 
 ---
@@ -53,7 +53,7 @@ This is the living task list. Keep it current as work progresses.
 ## Phase 3 — RSVP form ✅
 
 - [x] Attending radio ("Nah, yeah" / "Yeah, nah") — `RadioCard` component
-- [x] Pom-specific inline translation labels (bold, right-aligned) and note (italic)
+- [x] Pom-specific inline translation labels (Yes / No, bold right-aligned)
 - [x] Conditional dietary requirements textarea (shown when attending)
 - [x] Conditional beer vote radio with 5 options + "Other" text reveal
 - [x] Form validation: attending required; beer is optional
@@ -66,41 +66,28 @@ This is the living task list. Keep it current as work progresses.
 
 ---
 
-## Phase 4 — Three.js cake animation ✅
+## Phase 4 — Three.js cake animation
 
-- [x] Set up `@react-three/fiber`, `@react-three/drei`, `gsap`
-- [x] `CakeCanvas` client component — transparent background, dynamic import (SSR disabled)
-- [x] Load `.glb` model with `useGLTF` and `<Center>` for auto-centering
-- [x] Warm ambient + directional lighting
-- [x] GSAP ScrollTrigger — scrub timeline drives `animRef` (rotZ + posY)
-- [x] Cake tips left (Z rotation) then drops off bottom
-- [x] Left-edge pivot — `Box3` offset so cake rotates around its left edge
-- [x] CSS `cake-shake` screen shake on container at smash point
-- [x] Fragment explosion on smash — `InstancedMesh` with gravity physics
-- [x] Scroll reversal — cake restores on scroll up (smash state driven by GSAP ticker)
-- [x] Section height 250vh — tight scroll, tipping starts early
-- [ ] Verify canvas resizes correctly on mobile / viewport change
-- [ ] Tune camera / fov once real `.glb` is in place
+- [-] All Phase 4 tasks — **Three.js removed from project; replaced with photo collage hero**
 
 ---
 
-## Phase 5 — Google Maps ceremony & reception
+## Phase 5 — Google Maps ceremony & reception ✅
 
-- [ ] **[BLOCKED — needs Google Maps API key]**
-- [ ] Load Google Maps JS API
-- [ ] Greyscale non-interactive map with ceremony "X" marker
-- [ ] GSAP ScrollTrigger: trigger reception route reveal on scroll
-- [ ] Animate polyline from ceremony to reception
-- [ ] Drop reception "X" marker on polyline completion
-- [ ] Display ceremony and reception details (venue names, date, time — TBD)
+- [x] Google Maps API key provisioned
+- [x] Load Google Maps JS API dynamically
+- [x] Light green non-interactive map with ceremony "X" marker
+- [x] Animate polyline from ceremony to reception (looping GSAP tween, not ScrollTrigger)
+- [x] Drop reception "X" marker on polyline completion
+- [x] Display ceremony and reception details (venue names, date, time, addresses)
 
 ---
 
 ## Phase 6 — Polish and ship
 
 - [ ] Full mobile pass: all sections, all states, all guest types
-- [ ] Verify token is never stored in localStorage or sessionStorage
-- [ ] Verify service role key does not appear in client bundle
+- [x] Verify token is never stored in localStorage or sessionStorage
+- [x] Verify service role key does not appear in client bundle
 - [ ] Review all `// TODO:` comments — fill in real values once available
 - [ ] Cross-browser: Chrome, Safari, Firefox (mobile and desktop)
 - [ ] Confirm all docs are current

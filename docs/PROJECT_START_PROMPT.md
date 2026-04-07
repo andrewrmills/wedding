@@ -1,39 +1,39 @@
-# Project Start Prompt — mcw_bc_search
+# Project Start Prompt — Wedding RSVP
 
 Use this prompt at the start of a new Claude Code session.
-
-**Option A** — Paste directly into a new Claude session.  
-**Option B** — Use the Session tab in Project Tracker (it uses this prompt automatically).
 
 ---
 
 ## Prompt
 
----
+You are working on the **Wedding RSVP** project — a personalised, single-page wedding RSVP web app built with Next.js (App Router), Supabase, Three.js, GSAP ScrollTrigger, and Google Maps.
 
-You are working on **mcw_bc_search**, a Web app project.
-
-A lightweight, mobile-friendly React (Vite) web app that searches Microsoft Business Central CRM Contacts via API. This is a local proof-of-concept.
-
+Each guest arrives via a unique magic link (`/rsvp?token=<uuid>`). The app looks them up in Supabase and personalises the full scroll experience: a hero section, a Three.js wedding cake animation, a Google Maps ceremony and reception reveal, and an RSVP form.
 
 Before we begin, please:
 
-1. Read **CLAUDE.md** — project context, stack details, and working preferences
+1. Read **CLAUDE.md** — project context, stack, and working preferences
 2. Read **docs/TASKS.md** — identify what is in progress or should be picked up next
 3. Read **docs/PROJECT_STAGE.md** — understand the current phase
-4. Briefly summarise what you have understood (current task, current stage, any blockers)
-5. Ask what we are working on today
+4. Read the relevant skill files for today's work (see CLAUDE.md skills table)
+5. Briefly summarise what you have understood (current task, current stage, any blockers)
+6. Ask what we are working on today
 
 Do not start writing or changing code until you have read those files and confirmed the plan.
 
-When you complete each chunk of work, report testing honestly using the Testing Standard
-in CLAUDE.md. Build passing is not the same as tested — say exactly what was verified.
+When you complete each chunk of work, report testing honestly using the Testing Standard in CLAUDE.md. Build passing is not the same as tested — say exactly what was verified.
 
 ---
 
 ## Quick context
 
-**Stack:** next-supabase
+**Stack:** Next.js App Router + Supabase + Three.js + GSAP + Google Maps + Tailwind CSS
+
+**Animation rule:** GSAP only — never introduce Framer Motion (conflicts with Three.js/GSAP)
+
+**Security rules:**
+- Token read from URL on every load — never stored client-side
+- Service role key server-side only — never in client bundle
 
 ---
 
