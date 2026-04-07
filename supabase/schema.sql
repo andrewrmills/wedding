@@ -9,17 +9,19 @@ CREATE TABLE IF NOT EXISTS public.invitees (
   id                   uuid        PRIMARY KEY DEFAULT gen_random_uuid(),
   token                uuid        UNIQUE NOT NULL DEFAULT gen_random_uuid(),
   name                 text        NOT NULL,
+  display_name         text,
   type                 text        NOT NULL CHECK (type IN ('Aus', 'Pom', 'Kiwi')),
   welcome_message      text,
   rsvp_attending       boolean,
   dietary_requirements text,
   beer_choice          text        CHECK (
                                      beer_choice IN (
-                                       'Hazy Pale Ale', 'Lager', 'Sour',
+                                       'Hazy', 'Lager', 'Sour',
                                        'Ginger Beer', 'Other'
                                      )
                                    ),
   beer_other_details   text,
+  last_accessed_at     timestamptz,
   created_at           timestamptz NOT NULL DEFAULT now(),
   updated_at           timestamptz NOT NULL DEFAULT now()
 );
