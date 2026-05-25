@@ -1,5 +1,6 @@
 import { createServiceClient } from '@/lib/supabase/service'
 import type { BeerChoice } from '@/lib/types/invitee'
+import { CopyLinkButton } from './_components/CopyLinkButton'
 
 const BEER_ORDER: BeerChoice[] = ['Hazy', 'Lager', 'Sour', 'Ginger Beer', 'Other']
 
@@ -158,6 +159,7 @@ export default async function AdminPage() {
                   <th className="text-left px-4 py-2.5 font-medium text-gray-500">RSVP</th>
                   <th className="text-left px-4 py-2.5 font-medium text-gray-500">Beer</th>
                   <th className="text-left px-4 py-2.5 font-medium text-gray-500">Link Opened</th>
+                  <th className="px-4 py-2.5" />
                 </tr>
               </thead>
               <tbody>
@@ -175,6 +177,9 @@ export default async function AdminPage() {
                     </td>
                     <td className="px-4 py-2.5 text-gray-500 whitespace-nowrap text-xs">
                       {formatDate(i.last_accessed_at)}
+                    </td>
+                    <td className="px-4 py-2.5">
+                      <CopyLinkButton token={i.token} />
                     </td>
                   </tr>
                 ))}
