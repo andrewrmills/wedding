@@ -83,19 +83,19 @@ This is the living task list. Keep it current as work progresses.
 
 ---
 
-## Phase 6 — Polish and ship
+## Phase 6 — Polish and ship ✅
 
-- [ ] Full mobile pass: all sections, all states, all guest types
+- [x] Full mobile pass: all sections, all states, all guest types
 - [x] Verify token is never stored in localStorage or sessionStorage
 - [x] Verify service role key does not appear in client bundle
-- [ ] Review all `// TODO:` comments — fill in real values once available
-- [ ] Cross-browser: Chrome, Safari, Firefox (mobile and desktop)
-- [ ] Confirm all docs are current
-- [ ] Distribute magic links to guests
+- [x] Review all `// TODO:` comments — fill in real values once available
+- [x] Cross-browser: Chrome, Safari, Firefox (mobile and desktop)
+- [x] Confirm all docs are current
+- [x] Distribute magic links to guests
 
 ---
 
 ## Backlog
 
-- Admin view for hosts to see RSVP responses (currently: direct Supabase access)
-- Sending magic links (currently: manual distribution)
+- [x] Admin view for hosts to see RSVP responses
+- [x] Sending magic links (copy link button in admin portal)

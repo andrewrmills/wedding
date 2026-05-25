@@ -23,6 +23,26 @@ Brief notes from each working session. Keep entries short — a few bullet point
 
 ## Log
 
+### 2026-05-26
+
+**Worked on:** Bug fixes, reliability improvements, DB schema cleanup
+
+**Completed:**
+- Pulled 5 commits from GitHub (discarded local uncommitted changes that were already deployed)
+- Re-implemented discarded changes: beer label copy ("decide on kegs"), "Hazy" shortening, form initialises as submitted when invitee has an existing RSVP
+- Fixed admin page serving stale data: `force-dynamic` on `/admin`, `revalidatePath('/admin')` called on RSVP submission
+- Fixed RSVP submission reliability: wrapped `submitRsvp` call in try/catch/finally (network errors were freezing the submit button silently), added `.select('id')` to Supabase update to catch token-not-matched silent failures
+- Dropped `invitees_beer_choice_check` constraint from Supabase — constraint still referenced "Hazy Pale Ale" and was blocking new submissions with "Hazy"
+- Deployed to production (`fa12035`), pushed to GitHub
+
+**Blockers / open questions:**
+- None
+
+**Next session:**
+- Monitor for any further submission issues from guests
+
+---
+
 ### 2026-04-03
 
 **Worked on:** Phase 4 cake animation refinements, GitHub setup

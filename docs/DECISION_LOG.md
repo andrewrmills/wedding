@@ -31,6 +31,22 @@ Record key technical and product decisions here so future contributors
 
 ## Log
 
+### 2026-05-26 — Drop beer_choice check constraint
+
+**Context:**
+The `invitees_beer_choice_check` constraint was created when the beer option was named "Hazy Pale Ale". When we renamed it to "Hazy" in `constants/strings.ts`, new RSVP submissions were being silently rejected by the DB because "Hazy" was not in the allowed list.
+
+**Decision:**
+Drop the constraint entirely via `ALTER TABLE invitees DROP CONSTRAINT invitees_beer_choice_check`. App-level enforcement (UI options + TypeScript `BeerChoice` union type) is sufficient for a closed, invite-only app with no public API.
+
+**Alternatives considered:**
+Update the constraint to replace "Hazy Pale Ale" with "Hazy" — valid, but adds maintenance overhead each time copy changes. Not worth it for a one-off event app.
+
+**Consequences:**
+No DB-level restriction on `beer_choice` values. Any value could theoretically be written if someone bypasses the UI, but this is not a realistic attack surface for a private wedding RSVP.
+
+---
+
 ### 2026-04-03 — Smash state driven by GSAP ticker, not R3F useFrame
 
 **Context:**
