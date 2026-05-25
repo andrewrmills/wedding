@@ -26,6 +26,8 @@ export default async function AdminPage() {
   const notAttending = all.filter(i => i.rsvp_attending === false)
   const notResponded = all.filter(i => i.rsvp_attending === null)
 
+  const sumAdults = (rows: typeof all) => rows.reduce((s, i) => s + (i.adults ?? 0), 0)
+
   // Beer counts — attending guests only
   const beerCounts = new Map<string, number>()
   for (const i of attending) {
@@ -58,10 +60,10 @@ export default async function AdminPage() {
         <section>
           <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-4">Summary</h2>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-            <Card label="Total Invited" value={all.length} />
-            <Card label="Attending" value={attending.length} highlight="green" />
-            <Card label="Not Attending" value={notAttending.length} highlight="red" />
-            <Card label="No Response" value={notResponded.length} highlight="amber" />
+            <Card label="Total Invited" value={sumAdults(all)} />
+            <Card label="Attending" value={sumAdults(attending)} highlight="green" />
+            <Card label="Not Attending" value={sumAdults(notAttending)} highlight="red" />
+            <Card label="No Response" value={sumAdults(notResponded)} highlight="amber" />
           </div>
         </section>
 
