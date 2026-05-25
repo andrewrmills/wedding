@@ -31,7 +31,7 @@ export function RsvpForm({ invitee, token }: Props) {
   const [errors, setErrors] = useState<ValidationErrors>({})
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitError, setSubmitError] = useState<string | null>(null)
-  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(invitee.rsvp_attending !== null)
 
   const isPom = invitee.type === 'Pom'
   const isAttending = attending === 'yes'
@@ -55,20 +55,24 @@ export function RsvpForm({ invitee, token }: Props) {
     setIsSubmitting(true)
     setSubmitError(null)
 
-    const result = await submitRsvp({
-      token,
-      rsvp_attending: attending === 'yes',
-      dietary_requirements: dietary.trim() || null,
-      beer_choice: isAttending ? beerChoice : null,
-      beer_other_details: isAttending && beerChoice === 'Other' ? beerOther.trim() || null : null,
-    })
+    try {
+      const result = await submitRsvp({
+        token,
+        rsvp_attending: attending === 'yes',
+        dietary_requirements: dietary.trim() || null,
+        beer_choice: isAttending ? beerChoice : null,
+        beer_other_details: isAttending && beerChoice === 'Other' ? beerOther.trim() || null : null,
+      })
 
-    setIsSubmitting(false)
-
-    if (result.success) {
-      setIsSubmitted(true)
-    } else {
-      setSubmitError(result.error)
+      if (result.success) {
+        setIsSubmitted(true)
+      } else {
+        setSubmitError(result.error)
+      }
+    } catch {
+      setSubmitError('Something went wrong. Please try again.')
+    } finally {
+      setIsSubmitting(false)
     }
   }
 

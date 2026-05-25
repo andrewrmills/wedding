@@ -2,6 +2,8 @@ import { createServiceClient } from '@/lib/supabase/service'
 import type { BeerChoice } from '@/lib/types/invitee'
 import { CopyLinkButton } from './_components/CopyLinkButton'
 
+export const dynamic = 'force-dynamic'
+
 const BEER_ORDER: BeerChoice[] = ['Hazy', 'Lager', 'Sour', 'Ginger Beer', 'Other']
 
 function formatDate(iso: string | null): string {
