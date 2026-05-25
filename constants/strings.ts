@@ -45,6 +45,7 @@ export const CEREMONY = {
   time: '2pm',
   lat: -43.48750040243022,
   lng: 172.724813561856,
+  mapsUrl: 'https://www.google.com/maps/dir/?api=1&destination=-43.48750040243022,172.724813561856',
 } as const
 
 export const RECEPTION = {
@@ -52,4 +53,5 @@ export const RECEPTION = {
   addressLines: ['6a Pandora St', 'North New Brighton', 'Christchurch'],
   lat: -43.48807024683603,
   lng: 172.7208945165229,
+  mapsUrl: 'https://www.google.com/maps/dir/?api=1&destination=6A+Pandora+St,+North+New+Brighton,+Christchurch',
 } as const

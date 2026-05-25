@@ -188,6 +188,14 @@ export function MapSection({ invitee }: Props) {
             {CEREMONY.addressLines.map((line) => (
               <p key={line} className="font-body text-cream-dim text-sm leading-relaxed">{line}</p>
             ))}
+            <a
+              href={CEREMONY.mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block mt-4 font-body text-clay text-xs tracking-[0.15em] uppercase hover:text-cream transition-colors"
+            >
+              Get directions ↗
+            </a>
           </div>
 
           {/* Reception */}
@@ -200,6 +208,14 @@ export function MapSection({ invitee }: Props) {
             {RECEPTION.addressLines.map((line) => (
               <p key={line} className="font-body text-cream-dim text-sm leading-relaxed">{line}</p>
             ))}
+            <a
+              href={RECEPTION.mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block mt-4 font-body text-clay text-xs tracking-[0.15em] uppercase hover:text-cream transition-colors"
+            >
+              Get directions ↗
+            </a>
           </div>
 
         </div>

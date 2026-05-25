@@ -154,7 +154,7 @@ export default async function AdminPage() {
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-gray-100 bg-gray-50">
-                  <th className="text-left px-4 py-2.5 font-medium text-gray-500">Name</th>
+                  <th className="text-left px-4 py-2.5 font-medium text-gray-500 sticky left-0 bg-gray-50 z-10">Name</th>
                   <th className="text-left px-4 py-2.5 font-medium text-gray-500">Type</th>
                   <th className="text-left px-4 py-2.5 font-medium text-gray-500">RSVP</th>
                   <th className="text-left px-4 py-2.5 font-medium text-gray-500">Beer</th>
@@ -165,7 +165,7 @@ export default async function AdminPage() {
               <tbody>
                 {all.map(i => (
                   <tr key={i.id} className="border-b border-gray-50 last:border-0">
-                    <td className="px-4 py-2.5 font-medium whitespace-nowrap">{i.name}</td>
+                    <td className="px-4 py-2.5 font-medium whitespace-nowrap sticky left-0 bg-white z-10">{i.name}</td>
                     <td className="px-4 py-2.5 text-gray-500">{i.type}</td>
                     <td className="px-4 py-2.5">
                       <RsvpBadge value={i.rsvp_attending} />
