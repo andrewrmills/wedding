@@ -158,6 +158,7 @@ export default async function AdminPage() {
                   <th className="text-left px-4 py-2.5 font-medium text-gray-500">Type</th>
                   <th className="text-left px-4 py-2.5 font-medium text-gray-500">RSVP</th>
                   <th className="text-left px-4 py-2.5 font-medium text-gray-500">Beer</th>
+                  <th className="text-left px-4 py-2.5 font-medium text-gray-500">Dietary</th>
                   <th className="text-left px-4 py-2.5 font-medium text-gray-500">Link Opened</th>
                   <th className="px-4 py-2.5" />
                 </tr>
@@ -175,6 +176,7 @@ export default async function AdminPage() {
                         ? `Other${i.beer_other_details ? ` — ${i.beer_other_details}` : ''}`
                         : (i.beer_choice ?? '—')}
                     </td>
+                    <td className="px-4 py-2.5 text-gray-700 text-xs">{i.dietary_requirements ?? '—'}</td>
                     <td className="px-4 py-2.5 text-gray-500 whitespace-nowrap text-xs">
                       {formatDate(i.last_accessed_at)}
                     </td>
