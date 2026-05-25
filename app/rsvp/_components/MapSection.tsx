@@ -54,7 +54,7 @@ type Props = {
 }
 
 export function MapSection({ invitee }: Props) {
-  const firstName = invitee.name.split(' ')[0]
+  const firstName = invitee.display_name ?? invitee.name
   const mapDivRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {

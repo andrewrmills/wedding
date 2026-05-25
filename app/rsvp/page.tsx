@@ -20,7 +20,7 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
 
   if (!invitee) return {}
 
-  const name = invitee.display_name ?? invitee.name.split(' ')[0]
+  const name = invitee.display_name ?? invitee.name
   return { description: `You're invited, ${name}.` }
 }
 
