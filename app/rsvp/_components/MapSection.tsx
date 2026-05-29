@@ -225,7 +225,7 @@ export function MapSection({ invitee }: Props) {
               {DRESS_CODE.label}
             </p>
             <h2 className="font-display text-cream text-2xl mb-3">{DRESS_CODE.main}</h2>
-            <p className="font-body text-cream-dim text-sm leading-relaxed">{DRESS_CODE.note}</p>
+            <p className="font-body text-cream-dim text-sm leading-relaxed">{DRESS_CODE.note(DRESS_CODE.shoeWord[invitee.type])}</p>
           </div>
 
         </div>

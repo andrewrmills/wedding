@@ -51,7 +51,8 @@ export const CEREMONY = {
 export const DRESS_CODE = {
   label: 'What to wear',
   main: 'Smart casual',
-  note: "The ceremony is on the beach though, so jandals or bare feet are perfectly acceptable.",
+  note: (shoeWord: string) => `The ceremony is on the beach, so ${shoeWord} or bare feet are perfectly acceptable.`,
+  shoeWord: { Aus: 'thongs', Pom: 'jandals', Kiwi: 'jandals' },
 } as const
 
 export const RECEPTION = {
