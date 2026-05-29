@@ -48,6 +48,12 @@ export const CEREMONY = {
   mapsUrl: 'https://www.google.com/maps/dir/?api=1&destination=-43.48750040243022,172.724813561856',
 } as const
 
+export const DRESS_CODE = {
+  label: 'What to wear',
+  main: 'Smart casual',
+  note: "The ceremony is on the beach though, so jandals or bare feet are perfectly acceptable.",
+} as const
+
 export const RECEPTION = {
   venueName: 'Our House',
   addressLines: ['6a Pandora St', 'North New Brighton', 'Christchurch'],

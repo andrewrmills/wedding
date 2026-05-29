@@ -2,7 +2,7 @@
 
 import { useRef, useEffect } from 'react'
 import gsap from 'gsap'
-import { CEREMONY, RECEPTION, MAP } from '@/constants/strings'
+import { CEREMONY, RECEPTION, MAP, DRESS_CODE } from '@/constants/strings'
 import type { Invitee } from '@/lib/types/invitee'
 
 // ─────────────────────────────────────────
@@ -199,7 +199,7 @@ export function MapSection({ invitee }: Props) {
           </div>
 
           {/* Reception */}
-          <div>
+          <div className="mb-12">
             <div className="w-8 h-px bg-clay mb-6" />
             <p className="font-body text-cream-dim text-[0.625rem] tracking-[0.25em] uppercase mb-3">
               Reception
@@ -216,6 +216,16 @@ export function MapSection({ invitee }: Props) {
             >
               Get directions ↗
             </a>
+          </div>
+
+          {/* Dress code */}
+          <div>
+            <div className="w-8 h-px bg-clay mb-6" />
+            <p className="font-body text-cream-dim text-[0.625rem] tracking-[0.25em] uppercase mb-3">
+              {DRESS_CODE.label}
+            </p>
+            <h2 className="font-display text-cream text-2xl mb-3">{DRESS_CODE.main}</h2>
+            <p className="font-body text-cream-dim text-sm leading-relaxed">{DRESS_CODE.note}</p>
           </div>
 
         </div>
